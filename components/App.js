@@ -1,27 +1,47 @@
 const React = require('react');
+const counterStore = require('../stores/counterStore')
+const actions = require('../actions/index')
 
 class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      // Your implementation here.
-    };
+      counter: counterStore.getState()
+    }
+    this.handleInc = this.handleInc.bind(this);
+    this.handleDec = this.handleDec.bind(this);
   }
+
   componentDidMount () {
-    // Your implementation here.
+    this.removeListener = counterStore.addListener((state) => {
+      this.setState({counter: state})
+    })
+    this.setState(counterStore.getState())
   }
+
   componentWillUnmount () {
-    // Your implementation here.
+    this.removeListener(this)
   }
+
+  handleInc(e) {
+    e.preventDefault()
+    actions.increment()
+  }
+
+  handleDec(e) {
+    e.preventDefault()
+    actions.decrement()
+  }
+
   render () {
     return (
       <div className='app'>
-        <h1 className='counter'></h1>
+        <h1 className='counter'>{this.state.counter}</h1>
         <div className='actions'>
-          <button className='decrement'>
+          <button className='decrement' onClick={this.handleDec}>
             -
           </button>
-          <button className='increment'>
+          <button className='increment' onClick={this.handleInc}>
             +
           </button>
         </div>
