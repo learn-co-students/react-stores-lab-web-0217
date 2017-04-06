@@ -1,3 +1,13 @@
+//// Running npm test was wrong, I needed to move the order
+//// of the tests in index-test. if I run npm test test/index-test.js
+//// it passes all of the tests now. But if I run npm test
+//// or learn, two tests don't pass in the actions test.
+//// BUT if I run just the actions tests specifically, they
+//// all pass. Weird, huh?
+
+
+
+
 const { shallow, mount } = require('enzyme');
 const counterStore = require('../stores/counterStore');
 const sinon = require('sinon');
