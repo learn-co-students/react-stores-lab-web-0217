@@ -11,13 +11,11 @@ class CounterStore extends userStore {
   increment() {
   	let incrementedState = this.getState() + 1
   	this.setState(incrementedState)
-
   }
 
   decrement() {
-  	let incrementedState = this.getState() - 1
-  	this.setState(incrementedState)
-
+  	let decrementedState = this.getState() - 1
+  	this.setState(decrementedState)
   }
 }
 
