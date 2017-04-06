@@ -5,19 +5,17 @@ class CounterStore extends userStore {
   // Hint: extend the Store class!
   constructor() {
   	super(0)
-  	
+
   }
 
   increment() {
   	let incrementedState = this.getState() + 1
   	this.setState(incrementedState)
-
   }
 
   decrement() {
   	let incrementedState = this.getState() - 1
   	this.setState(incrementedState)
-
   }
 }
 

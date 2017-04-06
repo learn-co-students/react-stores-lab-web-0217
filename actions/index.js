@@ -1,4 +1,6 @@
+const CS = require('../stores/counterStore')
+
 module.exports = {
-  // Your implementation here.
-  // Hint: We need two actions!
-};
+  increment: () => CS.increment(),
+  decrement: () => CS.decrement()
+}
