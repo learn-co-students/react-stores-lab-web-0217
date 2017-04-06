@@ -1,15 +1,18 @@
-const React = require('react');
+const React = require('react')
+const counterStore = require('../stores/counterStore')
 
 class App extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
-      // Your implementation here.
-    };
+      counter: counterStore.getState()
+    }
   }
+
   componentDidMount () {
-    // Your implementation here.
+
   }
+
   componentWillUnmount () {
     // Your implementation here.
   }
@@ -26,8 +29,15 @@ class App extends React.Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-module.exports = App;
+// componentDidMount () {
+//   this.removeListener = userStore.addListener((state) => {
+//     this.setState(state)
+//   })
+//   this.setState(userStore.getState())
+// }
+
+module.exports = App
