@@ -1,4 +1,16 @@
 // Your implementation here.
 // Hint: We need two actions!
+const counterStore = require('../stores/counterStore')
 
-export {}
+const increment = () => {
+  counterStore.increment()
+}
+
+const decrement = () => {
+  counterStore.decrement()
+}
+
+module.exports = {
+  increment,
+  decrement
+}
